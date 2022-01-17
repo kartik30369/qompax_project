@@ -1,4 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'package:provider/provider.dart';
 
-void main() => ChangeNoti
+import 'app.dart';
+
+void main() {
+  return runApp(const HomePage());
+}
