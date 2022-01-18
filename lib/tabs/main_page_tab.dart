@@ -16,7 +16,7 @@ class _MainPageTabState extends State<MainPageTab> {
   @override
   void initState() {
     super.initState();
-    _textController = TextEditingController(text: 'Введите имя');
+    _textController = TextEditingController();
   }
 
   @override
