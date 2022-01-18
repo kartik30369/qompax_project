@@ -26,22 +26,25 @@ class _MainPageTabState extends State<MainPageTab> {
       const CupertinoSliverNavigationBar(
         largeTitle: Text('Главная'),
       ),
-      Row(children: <Widget>[
-        CupertinoTextField(
-          controller: _textController,
-          onSubmitted: _handleSubmitted,
-        ),
-        Container(
-          margin: const EdgeInsets.symmetric(horizontal: 4.0),
-          child: CupertinoButton(
-              child: const Icon(
-                CupertinoIcons.arrow_right_circle_fill,
-              ),
-              onPressed: () {
-                _textController.clear();
-              }),
-        )
-      ]),
+      SliverToBoxAdapter(
+        child: Row(children: <Widget>[
+          Flexible(
+              child: CupertinoTextField(
+            controller: _textController,
+            onSubmitted: _handleSubmitted,
+          )),
+          Container(
+            margin: const EdgeInsets.symmetric(horizontal: 4.0),
+            child: CupertinoButton(
+                child: const Icon(
+                  CupertinoIcons.arrow_right_circle_fill,
+                ),
+                onPressed: () {
+                  _textController.clear();
+                }),
+          )
+        ]),
+      ),
     ]));
   }
 }
