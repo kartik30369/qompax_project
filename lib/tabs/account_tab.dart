@@ -5,12 +5,14 @@ class AccountTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: <Widget>[
-        CupertinoSliverNavigationBar(
-          largeTitle: Text('Аккаунт'),
-        ),
-      ],
+    return const CupertinoPageScaffold(
+      child: CustomScrollView(
+        slivers: <Widget>[
+          CupertinoSliverNavigationBar(
+            largeTitle: Text('Аккаунт'),
+          ),
+        ],
+      ),
     );
   }
 }

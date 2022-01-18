@@ -5,12 +5,23 @@ class PrayTab extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomScrollView(
-      slivers: <Widget>[
-        CupertinoSliverNavigationBar(
-          largeTitle: Text('Молитва'),
-        ),
-      ],
+    return CupertinoPageScaffold(
+      child: ListView(
+        children: <Widget>[
+          const CupertinoSliverNavigationBar(
+            largeTitle: Text('Молитва'),
+          ),
+          CupertinoTextFormFieldRow(
+            prefix: const Text('Username'),
+            onSaved: (String? value) {},
+            validator: (String? value) {
+              return (value != null && value.contains('@'))
+                  ? 'Do not use the @ char.'
+                  : null;
+            },
+          )
+        ],
+      ),
     );
   }
 }
