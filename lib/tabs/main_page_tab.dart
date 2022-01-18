@@ -27,11 +27,10 @@ class _MainPageTabState extends State<MainPageTab> {
         largeTitle: Text('Главная'),
       ),
       Row(children: <Widget>[
-        Flexible(
-            child: CupertinoTextField(
+        CupertinoTextField(
           controller: _textController,
           onSubmitted: _handleSubmitted,
-        )),
+        ),
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 4.0),
           child: CupertinoButton(
