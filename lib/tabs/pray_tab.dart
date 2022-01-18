@@ -27,15 +27,21 @@ class _PrayTabState extends State<PrayTab> {
           const CupertinoSliverNavigationBar(
             largeTitle: Text('Молитва'),
           ),
-          SliverToBoxAdapter(
-            child: Row(children: <Widget>[
-              Flexible(
-                  child: CupertinoTextField(
-                controller: _textController,
-                onSubmitted: _handleSubmitted,
-              )),
+          SliverList(
+            delegate: SliverChildListDelegate([
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+                child: CupertinoTextField(
+                  textInputAction: TextInputAction.next,
+                  restorationId: 'first_name_text_field',
+                  placeholder: 'Введите имя',
+                  keyboardType: TextInputType.text,
+                  clearButtonMode: OverlayVisibilityMode.editing,
+                  autocorrect: false,
+                ),
+              ),
               Container(
-                margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                margin: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: CupertinoButton(
                     child: const Icon(
                       CupertinoIcons.arrow_right_circle_fill,
@@ -43,9 +49,9 @@ class _PrayTabState extends State<PrayTab> {
                     onPressed: () {
                       _textController.clear();
                     }),
-              )
+              ),
             ]),
-          ),
+          )
         ],
       ),
     );
