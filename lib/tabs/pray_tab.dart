@@ -23,29 +23,28 @@ class _PrayTabState extends State<PrayTab> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       child: CustomScrollView(
+        keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
         slivers: <Widget>[
           const CupertinoSliverNavigationBar(
             largeTitle: Text('Молитва'),
           ),
           SliverList(
             delegate: SliverChildListDelegate([
-              const Padding(
-                padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-                child: CupertinoTextField(
+              Padding(
+                padding: EdgeInsets.symmetric(vertical: 8.0),
+                child: CupertinoTextFormFieldRow(
+                  prefix: Text('Введите имя:'),
                   textInputAction: TextInputAction.next,
-                  restorationId: 'first_name_text_field',
                   placeholder: 'Введите имя',
                   keyboardType: TextInputType.text,
-                  clearButtonMode: OverlayVisibilityMode.editing,
                   autocorrect: false,
                 ),
               ),
-              Container(
-                margin: const EdgeInsets.symmetric(horizontal: 8.0),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: CupertinoButton(
-                    child: const Icon(
-                      CupertinoIcons.arrow_right_circle_fill,
-                    ),
+                    alignment: Alignment.topRight,
+                    child: const Text('Отправить'),
                     onPressed: () {
                       _textController.clear();
                     }),
